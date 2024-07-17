@@ -1,0 +1,55 @@
+<form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+  <label for="name">Name</label>
+  <input id="name" formControlName="name">
+  <div *ngIf="myForm.get('name')?.invalid && myForm.get('name')?.touched">
+    Name is required
+  </div>
+
+  <label for="language">Programming Language</label>
+  <select id="language" formControlName="language">
+    <option *ngFor="let lang of languages" [value]="lang">{{ lang }}</option>
+  </select>
+  <div *ngIf="myForm.get('language')?.invalid && myForm.get('language')?.touched">
+    Enter a valid language
+  </div>
+
+  <label for="cloud">Cloud Provider</label>
+  <select id="cloud" formControlName="cloud">
+    <option *ngFor="let cloud of clouds" [value]="cloud">{{ cloud }}</option>
+  </select>
+  <div *ngIf="myForm.get('cloud')?.invalid && myForm.get('cloud')?.touched">
+    Enter a valid cloud provider
+  </div>
+
+  <label for="editor">Editor</label>
+  <select id="editor" formControlName="editor">
+    <option *ngFor="let editor of editors" [value]="editor">{{ editor }}</option>
+  </select>
+  <div *ngIf="myForm.get('editor')?.invalid && myForm.get('editor')?.touched">
+    Enter a valid editor
+  </div>
+
+  <label for="os">Operating System</label>
+  <select id="os" formControlName="os">
+    <option *ngFor="let os of Operatingsystem" [value]="os">{{ os }}</option>
+  </select>
+  <div *ngIf="myForm.get('os')?.invalid && myForm.get('os')?.touched">
+    Enter a valid operating system
+  </div>
+
+  <label for="domain">Domain</label>
+  <select id="domain" formControlName="domain">
+    <option *ngFor="let domain of domains" [value]="domain">{{ domain }}</option>
+  </select>
+  <div *ngIf="myForm.get('domain')?.invalid && myForm.get('domain')?.touched">
+    Enter a valid domain
+  </div>
+
+  <label for="message">Message</label>
+  <textarea id="message" formControlName="message"></textarea>
+  <div *ngIf="myForm.get('message')?.invalid && myForm.get('message')?.touched">
+    Message is required
+  </div>
+
+  <button type="submit">Submit</button>
+</form>
